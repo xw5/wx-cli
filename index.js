@@ -7,17 +7,16 @@ const loading = require('ora');
 const answer = require('inquirer');
 const chalk = require('chalk');
 
-commd.version('v1.0.2','-v,--version');
+commd.version('v1.0.3','-v,--version');
 commd.option('-c,--component','创建一个组件');
 commd.option('-d,--dialog','创建一个弹窗组件');
 commd.option('-b,--basedialog','创建一个基础弹窗组件');
 commd.option('-p,--page','创建一个页面');
 
-let childCmd = commd.command('create <dir-name>');
+let childCmd = commd.command('create <dirname>');
 childCmd.description('创建开发目录');
 childCmd.action((dirName) => {
   createTemplateBefore(dirName);
-  //createTemplate(dirName);
 });
 
 commd.parse(process.argv);
@@ -80,7 +79,7 @@ function createTemplate (dirName) {
     'dialog_custom': commd.dialog,
     'base_dialog': commd.basedialog
    };
-   let type = '';
+   let type = 'page';
    // 要下载的目录选择
    if(templateType.page){
      type = 'page';
@@ -97,6 +96,15 @@ function createTemplate (dirName) {
     renameFileName(dirName,type);
     replacePlaceholder('placeholder-str',dirName+'/'+dirName,dirName);
     console.log(chalk.green(chalk.white.bgGreen(dirName),'创建成功!'));
+
+    //如果是生成自定弹窗组件且当前通用弹窗组件没有生成会自动去生成通用的弹窗组件
+    if(type === 'dialog_custom' && !shelljs.test('-d','dialog')){
+      let loadingEffect = loading(`通用弹窗模板生成中,请稍等...\r\n`).start();
+      download('xw5/wx-template','dialog','base_dialog').then(() => {
+        loadingEffect.stop();
+        console.log(chalk.green(chalk.white.bgGreen('dialog'),'通用弹窗模板创建成功!'));
+      })
+    }
   }).catch(() => {
     console.log('下载失败，请重试！');
   });
