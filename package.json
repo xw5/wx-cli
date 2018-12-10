@@ -1,6 +1,6 @@
 {
   "name": "wxt-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "自动的微信模板生成工具",
   "main": "index.js",
   "bin": {
@@ -26,7 +26,7 @@
     "微信模板"
   ],
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "github-download-parts": "^2.1.0",
