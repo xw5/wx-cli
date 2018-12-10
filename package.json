@@ -1,0 +1,20 @@
+{
+  "name": "wx-cli",
+  "version": "1.0.0",
+  "description": "自动的微信模板生成工具",
+  "main": "index.js",
+  "bin": {
+    "wx": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xw",
+  "license": "ISC",
+  "devDependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0",
+    "github-download-parts": "^2.1.0",
+    "shelljs": "^0.8.3"
+  }
+}
