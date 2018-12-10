@@ -4,9 +4,9 @@
 
 使用方式
 ``` node
-npm i wx-cli -g
+npm i wxt-cli -g
 cd <target-name>
-wx create <template-name> -c/-p/-d/-b
+wxt create <template-name> -c/-p/-d/-b
 ```
 * target-name是你要在哪个目录下的生成指定模板
 * template-name是你要生成的文件夹名，同时也是模板名
