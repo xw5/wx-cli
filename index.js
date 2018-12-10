@@ -7,7 +7,7 @@ const loading = require('ora');
 const answer = require('inquirer');
 const chalk = require('chalk');
 
-commd.version('v1.0.3','-v,--version');
+commd.version('v1.0.4','-v,--version');
 commd.option('-c,--component','创建一个组件');
 commd.option('-d,--dialog','创建一个弹窗组件');
 commd.option('-b,--basedialog','创建一个基础弹窗组件');
