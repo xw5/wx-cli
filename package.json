@@ -1,15 +1,26 @@
 {
-  "name": "wx-cli",
+  "name": "wxt-cli",
   "version": "1.0.0",
   "description": "自动的微信模板生成工具",
   "main": "index.js",
   "bin": {
-    "wx": "index.js"
+    "wxt": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "xw",
+  "homepage": "https://github.com/xw5/wx-cli",
+  "bugs": "https://github.com/xw5/wx-cli/issues",
+  "author": {
+    "name": "xiewu",
+    "email": "xiewu5550@163.com",
+    "url": "https://github.com/xw5"
+  },
+  "keywords": [
+    "wxt-cli",
+    "微信",
+    "微信模板"
+  ],
   "license": "ISC",
   "devDependencies": {
     "chalk": "^2.4.1",
