@@ -7,7 +7,7 @@ const loading = require('ora');
 const answer = require('inquirer');
 const chalk = require('chalk');
 
-commd.version('v1.0.0','-v,--version');
+commd.version('v1.0.1','-v,--version');
 commd.option('-c,--component','创建一个组件');
 commd.option('-d,--dialog','创建一个弹窗组件');
 commd.option('-b,--basedialog','创建一个基础弹窗组件');
@@ -95,7 +95,7 @@ function createTemplate (dirName) {
    download('xw5/wx-template',dirName,type).then(() => {
     loadingEffect.stop();
     renameFileName(dirName,type);
-    replacePlaceholder('placeholder-str/placeholder-str',dirName+'/'+dirName,dirName);
+    replacePlaceholder('placeholder-str',dirName+'/'+dirName,dirName);
     console.log(chalk.green(chalk.white.bgGreen(dirName),'创建成功!'));
   }).catch(() => {
     console.log('下载失败，请重试！');
@@ -122,7 +122,7 @@ function renameFileName(dirName,type){
  * @param dirName 要替换的文件目录及文件名
  */
 function replacePlaceholder (oldStr,replaceStr,dirName) {
-  shelljs.sed('-i',oldStr, replaceStr,dirName+'/'+dirName+'.js');
-  shelljs.sed('-i',oldStr, replaceStr,dirName+'/'+dirName+'.wxss');
-  shelljs.sed('-i',oldStr, replaceStr,dirName+'/'+dirName+'.wxml');
+  shelljs.sed('-i',oldStr, replaceStr+'.js',dirName+'/'+dirName+'.js');
+  shelljs.sed('-i',oldStr, replaceStr+'.wxss',dirName+'/'+dirName+'.wxss');
+  shelljs.sed('-i',oldStr, replaceStr+'.wxml',dirName+'/'+dirName+'.wxml');
 }

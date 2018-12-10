@@ -7,6 +7,8 @@
 npm i wxt-cli -g
 cd <target-name>
 wxt create <template-name> -c/-p/-d/-b
+
+wxt -h可查看参数帮助说明
 ```
 * target-name是你要在哪个目录下的生成指定模板
 * template-name是你要生成的文件夹名，同时也是模板名
